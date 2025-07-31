@@ -20,7 +20,7 @@ capture_with_retry() {
         timestamp=$(date +"%Y%m%d_%H%M%S")
         filename="frame_${timestamp}.jpg"
         # Try to capture
-        if timeout 30 gphoto2 --set-config autofocusdrive=1 --capture-image-and-download --filename "$filename" 2>>"$LOG_FILE"; then
+        if timeout 1 gphoto2  --capture-image --filename "$filename" 2>>"$LOG_FILE"; then
             log_message "Successfully captured: $filename"
             echo "$filename"  # Return filename for logging
             return 0
