@@ -2,7 +2,7 @@
 # gpio_monitor.sh - Monitor GPIO pin 18 and trigger photo capture script
 
 TRIGGER_PIN=18
-SCRIPT_PATH="/home/pi/capture_photo.sh"
+SCRIPT_PATH="./timelapse_capture.sh"
 LOG_FILE="/home/pi/gpio_monitor.log"
 
 # Export the GPIO pin if not already exported

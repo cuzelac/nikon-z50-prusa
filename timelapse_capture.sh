@@ -1,8 +1,8 @@
 #!/bin/bash
 # timelapse_capture.sh - Complete script for timelapse photo capture with logging and retries
 
-PHOTO_DIR="/home/pi/timelapse"
-LOG_FILE="/home/pi/capture.log"
+PHOTO_DIR="${HOME}/timelapse"
+LOG_FILE="${HOME}/capture.log"
 MAX_RETRIES=3
 
 mkdir -p "$PHOTO_DIR"
@@ -20,7 +20,7 @@ capture_with_retry() {
         timestamp=$(date +"%Y%m%d_%H%M%S")
         filename="frame_${timestamp}.jpg"
         # Try to capture
-        if timeout 30 gphoto2 --capture-image-and-download --filename "$filename" 2>>"$LOG_FILE"; then
+        if timeout 30 gphoto2 --set-config autofocusdrive=1 --capture-image-and-download --filename "$filename" 2>>"$LOG_FILE"; then
             log_message "Successfully captured: $filename"
             echo "$filename"  # Return filename for logging
             return 0

@@ -11,14 +11,14 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(message)s',
     handlers=[
-        logging.FileHandler('/home/pi/gpio_monitor.log'),
+        logging.FileHandler('gpio_monitor.log'),
         logging.StreamHandler()
     ]
 )
 
 # Configuration
 TRIGGER_PIN = 18  # BCM numbering
-SCRIPT_PATH = '/home/pi/capture_photo.sh'
+SCRIPT_PATH = './timelapse_capture.sh'
 DEBOUNCE_TIME = 0.2  # seconds
 
 # GPIO Setup
